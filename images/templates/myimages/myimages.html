@@ -11,6 +11,7 @@
         <p><a href ="{% url 'register' %}">Register</a></p>
     {% endif %}
     <a href="{% url 'upload_file' %}">Upload</a>
+    <p><a href ="{% url 'home' %}">Back</a></p>
     <p>
         {% for i in my_pictures %}
             <img src="{{ i.image.url }}" width="500px"/>

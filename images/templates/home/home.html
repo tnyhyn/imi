@@ -15,8 +15,8 @@
     {% endif %}
     <a href="{% url 'upload_file' %}">Upload</a>
     <p>
-        {% for i in latest_pictures %}
-            <img src="{{ i.image.url }}" width="500px"/>
+        {% for image in latest_pictures %}
+            <img src="{{ image.image.url }}" width="500px"/>
         {% endfor %}
     </p>
 </html>

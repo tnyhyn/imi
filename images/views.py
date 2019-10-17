@@ -18,15 +18,13 @@ def upload_file(request):
     if request.method == 'POST':
         form = UploadImageForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            new_form = form.save(commit=False)
+            new_form.user = request.user
+            new_form.save()
             return HttpResponseRedirect(reverse('home'))
     else:
-        form = UploadImageForm()
+        form = UploadImageForm(request.POST, request.FILES)
     return render(request, 'upload/upload.html', {'form': form})
-
-
-# def upload(request):
-#     return HttpResponseRedirect('upload_file')
 
 
 def register(request):
@@ -38,14 +36,15 @@ def register(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request,user)
-            return redirect('')
+            return HttpResponseRedirect(reverse('home'))
     else:
         form = UserCreationForm()
     return render(request, 'register/register.html', {'form':form})
 
 
 def myimages(request):
-    my_pictures = Post.objects.filter(Poster=request.user)
+    # my_pictures = Post.objects.filter(user=request.user)
+    my_pictures = Post.objects.all()
     context = {'my_pictures': my_pictures}
     return render(request, 'myimages/myimages.html', context)
 

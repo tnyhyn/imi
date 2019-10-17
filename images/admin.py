@@ -10,10 +10,10 @@ class PostAdmin(admin.ModelAdmin):
         (None,                           {'fields': ['title']}),
         (None,                           {'fields': ['image']}),
         (None,                           {'fields': ['private']}),
-        (None,                           {'fields': ['author']}),
+        (None,                           {'fields': ['user']}),
         ('Date Information',             {'fields': ['pub_date']})
     ]
-    list_display = ('title', 'pub_date')
+    list_display = ('title', 'user', 'private', 'pub_date')
     list_filter = ['pub_date']
 
 
