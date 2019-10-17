@@ -43,8 +43,7 @@ def register(request):
 
 
 def myimages(request):
-    # my_pictures = Post.objects.filter(user=request.user)
-    my_pictures = Post.objects.all()
+    my_pictures = Post.objects.filter(user=request.user)
     context = {'my_pictures': my_pictures}
     return render(request, 'myimages/myimages.html', context)
 
