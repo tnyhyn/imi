@@ -1,0 +1,19 @@
+<html>
+    <title>
+        imi
+    </title>
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        <p><a href ="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        <p> You are not logged in</p>
+        <p><a href ="{% url 'login' %}">Login</a></p>
+        <p><a href ="{% url 'register' %}">Register</a></p>
+    {% endif %}
+    <a href="{% url 'upload_file' %}">Upload</a>
+    <p>
+        {% for i in my_pictures %}
+            <img src="{{ i.image.url }}" width="500px"/>
+        {% endfor %}
+    </p>
+</html>
