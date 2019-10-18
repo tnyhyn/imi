@@ -1,0 +1,46 @@
+<html>
+    <title>
+        imi
+    </title>
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        <p><a href ="{% url 'logout' %}">Logout</a></p>
+    {% else %}
+        <p> You are not logged in</p>
+        <p><a href ="{% url 'login' %}">Login</a></p>
+        <p><a href ="{% url 'register' %}">Register</a></p>
+    {% endif %}
+    <a href="{% url 'upload_file' %}">Upload</a>
+    <p><a href ="{% url 'home' %}">Back</a></p>
+    <h2>My Images</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Upload Date</th>
+                <th>Image</th>
+                <th>Private</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for image in my_pictures %}
+                <tr>
+                    <td>{{ image.title }}</td>
+                    <td>{{ image.pub_date }}</td>
+                    <td>
+                        <img src="{{ image.image.url }}" style="width:100px;">
+                        </a>
+                    </td>
+                    <td>{{ image.private }}</td>
+                    <td>
+                    <form method="post" action="{% url 'delete_file' image.pk %}">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</html>
