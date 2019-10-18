@@ -12,3 +12,4 @@ urlpatterns = [
     path('myimages/', views.myimages, name='myimages'),
 ]
 
+
