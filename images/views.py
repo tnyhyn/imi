@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, render_to_response
 from django.urls import reverse
 
+
 from .models import Post, User
 from .forms import UploadImageForm
 
@@ -11,7 +12,7 @@ from .forms import UploadImageForm
 def home(request):
     latest_pictures = Post.objects.all()
     context = {'latest_pictures': latest_pictures}
-    return render(request, 'home/home.html', context)
+    return render(request, 'home.html', context)
 
 
 def upload_file(request):
@@ -24,7 +25,14 @@ def upload_file(request):
             return HttpResponseRedirect(reverse('home'))
     else:
         form = UploadImageForm(request.POST, request.FILES)
-    return render(request, 'upload/upload.html', {'form': form})
+    return render(request, 'upload.html', {'form': form})
+
+
+def delete_file(request, pk):
+    if request.method == 'POST':
+        post = Post.objects.get(pk=pk)
+        post.delete()
+    return redirect('myimages')
 
 
 def register(request):
@@ -39,13 +47,13 @@ def register(request):
             return HttpResponseRedirect(reverse('home'))
     else:
         form = UserCreationForm()
-    return render(request, 'register/register.html', {'form':form})
+    return render(request, 'register.html', {'form':form})
 
 
 def myimages(request):
     my_pictures = Post.objects.filter(user=request.user)
     context = {'my_pictures': my_pictures}
-    return render(request, 'myimages/myimages.html', context)
+    return render(request, 'myimages.html', context)
 
 
 

@@ -17,4 +17,9 @@ class Post(models.Model):
         self.pub_date = timezone.now()
         return super(Post, self).save(*args, **kwargs)
 
+    def delete(self, *args, **kwargs):
+        self.image.delete()
+        super().delete(*args, **kwargs)
+
+
 
