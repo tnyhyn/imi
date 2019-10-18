@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
     <body> 
         <form method = "post" enctype="multipart/form-data"> 
             {% csrf_token %} 
-            {{ form.as_p }} 
+            {{ form|crispy }} 
             <button type="submit">Upload</button> 
         </form>
         <p><a href ="{% url 'home' %}">Cancel</a></p>
