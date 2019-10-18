@@ -1,5 +1,5 @@
 .vscode
-db.sqlite3
+*.sqlite3
 media/
 migrations/
 images/__pycache__
