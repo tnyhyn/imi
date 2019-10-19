@@ -6,9 +6,9 @@
     <body> 
         <form method = "post" enctype="multipart/form-data"> 
             {% csrf_token %} 
-            {{ form|crispy }} 
-            <button type="submit">Upload</button> 
+            {{ form.as_p }} 
+            <a href ="{% url 'home' %}" class="btn btn-warning">Cancel</a>
+            <button type="submit" class="btn btn-success">Upload</button> 
         </form>
-        <p><a href ="{% url 'home' %}">Cancel</a></p>
     </body> 
 {% endblock %}
