@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 
+
 <html>
     {% block myimages %}
         {% if user.is_authenticated %}
-            <a href="{% url 'myimages' %}" class="btn btn-primary">My Images</a>
+            <a href="{% url 'myimages' %}" class="btn btn-secondary">My Images</a>
         {% endif %}
     {% endblock %}
     {% block content %}
-
-        <p>
-            {% for image in latest_pictures %}
-                <img src="{{ image.image.url }}" width="500px"/>
-            {% endfor %}
-        </p>
+    <div class="card-columns">
+        {% for image in latest_pictures %}
+            <div class="card card border-light mb-3">
+                <a href="{{image.image.url}}">
+                    <img class="card-img-top" src="{{ image.image.url }}">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
     {% endblock %}
 </html>

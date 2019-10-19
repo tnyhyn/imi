@@ -11,8 +11,7 @@ from .forms import UploadImageForm
 
 def home(request):
     latest_pictures = Post.objects.filter(private=False)
-    print(latest_pictures)
-    context = {'latest_pictures': latest_pictures}
+    context = {'latest_pictures': latest_pictures[::-1]}
     return render(request, 'home.html', context)
 
 

@@ -7,35 +7,34 @@
     <title>imi</title>
     </head>
     <body>
-        <div class="container">
-            <div class="col-12">
-                <div class="row" >
-                    <div class="col-3 text-left">
-                        <h1 class="mt-12">imi</h1>
-                    </div>
-                    <div class="col-9 text-right" style="margin-top: 10px;">
-                        <div class="row">
-                            <div class="col">
-                                {% if user.is_authenticated %}
-                                    Hi {{ user.username }}!
-                                    {% block myimages %}
-                                    {% endblock %}
-                                    <a href="{% url 'upload_file' %}" class="btn btn-primary">Upload</a>
-                                {% endif %}
-                                {% if user.is_authenticated %}
-                                    <a href ="{% url 'logout' %}" class="btn btn-primary">Logout</a>
-                                {% else %}
-                                    <a href ="{% url 'login' %}" class="btn btn-primary">Sign In</a>
-                                    <a href ="{% url 'register' %}" class="btn btn-primary">Sign Up</a>
-                                {% endif %}
-                            </div>
+        <div class="col-12">
+            <div class="row" >
+                <div class="col-2 text-left">
+                    <h1 class="mt-12">imi</h1>
+                </div>
+                <div class="col-10 text-right" style="margin-top: 10px;">
+                    <div class="row">
+                        <div class="col">
+                            {% if user.is_authenticated %}
+                            Hi {{ user.username }}!
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {% block myimages %}
+                            {% endblock %}
+                                <a href="{% url 'upload_file' %}" class="btn btn-secondary">Upload</a>
+                            {% endif %}
+                            {% if user.is_authenticated %}
+                                <a href ="{% url 'logout' %}" class="btn btn-secondary">Logout</a>
+                            {% else %}
+                                <a href ="{% url 'login' %}" class="btn btn-secondary">Sign In</a>
+                                <a href ="{% url 'register' %}" class="btn btn-secondary">Sign Up</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-                <hr class="mt-0 mb-4">
-            {% block content %}
-            {% endblock %}
             </div>
+            <hr class="mt-0 mb-4">
+        {% block content %}
+        {% endblock %}
         </div>
     </body>
 </html>
