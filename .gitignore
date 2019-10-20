@@ -7,3 +7,4 @@ images/__pycache__
 settings_prod.py
 settings_dev.py
 secret_key.txt
+Procfile.windows
