@@ -28,7 +28,7 @@ SECRET_KEY = "gB/(Tu#Wd,ulic[{OXWw:Xn+#7*FD>"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['secret-beyond-69744.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['imimi.herokuapp.com', '127.0.0.1']
 
 STATIC_URL = '/static/'
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
