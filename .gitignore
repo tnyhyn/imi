@@ -1,7 +1,6 @@
 .vscode
 *.sqlite3
 media/
-migrations/
 images/__pycache__
 *.pyc
 settings_prod.py
