@@ -5,4 +5,5 @@ migrations/
 images/__pycache__
 *.pyc
 settings_prod.py
+settings_dev.py
 secret_key.txt
