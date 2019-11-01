@@ -10,17 +10,17 @@ Currently supports:
 #### Home Page
 <em>View of the home page of publicly uploaded images</em>
 
-![Home Page](https://i.imgur.com/rwKbrQL.jpg)
+![Home Page](https://i.imgur.com/v4JeW7f.jpg)
 
 #### Home Page after login
 <em>View of the home page of publicly uploaded images, with access to your uploaded images</em>
 
-![Home Page](https://i.imgur.com/E6h3srK.jpg)
+![Home Page](https://imgur.com/qQliAtm.jpg)
 
 #### User images page
 <em>User can browse through or delete their uploaded images</em>
 
-![My Images](https://i.imgur.com/irMf70W.png)
+![My Images](https://i.imgur.com/2vpLezY.png)
 
 
 
